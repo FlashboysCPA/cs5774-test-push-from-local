@@ -1,0 +1,126 @@
+html, body {
+    margin: 0; padding: 0;
+    background-color: aliceblue;
+    font-family: Arial, sans-serif;
+}
+/*1.08 time marker*/
+/* header styles*/
+div#header {
+    background-color: cadetblue;
+}
+
+div#title-box {
+    float: left;
+    width: 800px;
+    margin-left: 200px;
+}
+
+div#title-box img {
+    float: left;
+    width: 200px;
+    margin: 20px 10px 0 0;
+}
+
+form#Login-box {
+    float: left;
+    width: 400px;
+    margin-top: 20px;
+}
+
+form#Login-box input[type="text"],
+form#Login-box input[type="password"] {
+    display: block;
+    margin-bottom: 5px;
+}
+
+ul#primary-nav {
+    clear: left;
+    margin: 0 0 0 200px; padding: 0;
+    list-style-type: none;
+}
+
+ul#primary-nav li {
+    float: left;
+}
+
+ul#primary-nav li a {
+    display: block;
+    text-decoration: none;
+    padding: 10px 15px;
+    background-color: black;
+    color: #fff;
+}
+ul#primary-nav li a:hover {
+    background-color: red;
+}
+/*time 1.09.30*/
+ul#primary-nav li a.selected {
+    background-color: #000;
+
+}
+
+/*content styles*/
+
+div#content{
+    clear: left;
+    background-color: cadetblue;
+    overflow: hidden;
+}
+
+div#history {
+    float: left;
+    width: 800px;
+    background-color: #fff;
+
+}
+
+div#history-story {
+    border-bottom: 1px solid #ccc
+}
+/*come back to for lost and found page*/
+div.lostpost-story div-lostpost-pts {
+    float: left;
+    width: 10px;
+    font-size: x-large;
+    text-align: center;
+}
+/*come back to for lost and found page*/
+
+div.history-story h3.history-title {}
+
+div.history-story p.history-description {
+    margin-left: 100px;
+}
+
+div#side-bar {
+    float: left;
+    width: 400px;
+}
+
+div#side-bar a.ad {
+    display: block;
+    margin: 10px 0;
+}
+
+/*footer styles*/
+
+div#footer {
+    clear: left;
+    margin-left: 200px;
+    width: 800px;
+    color: #fff;
+}
+p#footer-nav {
+    float: left;
+    width: 400px;
+}
+
+p#footer-nav a{
+    color: inherit;
+}
+
+p#copyright {
+    float: right;
+    width: 400px;
+    text-align: right;
+}
