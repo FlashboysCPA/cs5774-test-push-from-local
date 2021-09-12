@@ -3,7 +3,182 @@ div#title-box h2 {
     display: none;
      }
 
-@media all and (min-wdith:376px) {
+@media all and (min-width:376px) {
 /*    copy and paste over the css code*/
+    html, body {
+        margin: 0; padding: 0;
+        background-color: lightslategray;
+        font-family: Arial, sans-serif;
+    }
+    /*1.08 time marker*/
+    /* header styles*/
+    div#header {
+        background-color: cadetblue;
+    }
+
+    div#title-box {
+        float: left;
+        width: 800px;
+        margin-left: 200px;
+    }
+    /*responsive video, USED?*/
+    div#title-box h1{
+        font-size: xx-large;
+    }
+
+    div#title-box h2{
+        font-size: large;
+        display: block;
+    }
+    /*responsive video*/
+
+    div#title-box img {
+        float: left;
+        width: 100px;
+        margin: 20px 10px 0 0;
+    }
+
+    form#Login-box {
+        float: left;
+        width: 400px;
+        margin-top: 20px;
+    }
+
+    form#Login-box input[type="text"],
+    form#Login-box input[type="password"] {
+        display: block;
+        margin-bottom: 5px;
+    }
+
+    ul#primary-nav {
+        clear: left;
+        margin: 0 0 0 200px; padding: 0;
+        list-style-type: none;
+    }
+
+    ul#primary-nav li {
+        float: left;
+    }
+
+    ul#primary-nav li a {
+        display: block;
+        text-decoration: none;
+        padding: 10px 15px;
+        background-color: dimgray;
+        color: #fff;
+    }
+    ul#primary-nav li a:hover {
+        background-color: gray;
+    }
+    /*time 1.09.30*/
+    ul#primary-nav li a.selected {
+        background-color: black;
+
+
+    }
+
+    /*content styles*/
+
+    div#content{
+        clear: left;
+        background-color: aliceblue;
+        /*overflow: hidden;*/
+    }
+
+    ul#side-tabs {
+        float: left;
+        width: 200px;
+        /*aligning the content with the top navigaiton tabs, offset by 0*/
+        padding-left: 0px;
+        list-style-type: none;
+    }
+
+    ul#side-tabs li a {
+        display: block;
+        text-decoration: none;
+        padding: 10px 15px;
+        background-color: dimgray;
+        color: black;
+        text-align: right;
+    }
+
+    ul#side-tabs li a:hover {
+        background-color: gray;
+    }
+
+    ul#side-tabs li a.selected {
+        background-color: #fff;
+        font-weight: bold;
+    }
+
+    div#lostpost {
+        float: left;
+        width: 800px;
+        background-color: #fff;
+    }
+    div#lostpost-story {
+        border-bottom: 1px solid #ccc;
+    }
+    /*come back to for lost and found page*/
+    div.lostpost-story div.lostpost-pts {
+        float: left;
+        width: 100px;
+        font-size: x-large;
+        text-align: center;
+    }
+    /*come back to for lost and found page*/
+
+
+    /**/
+    div.lostpost-story h3.lostpost-title {}
+
+    div.lostpost-story p.lostpost-description,
+    div.lostpost-story p.lostpost-byline {
+        margin-left: 100px;
+    }
+    div.lostpost-story p.lostpost-byline {
+        font-size: small;
+    }
+
+    /*need to align all content*/
+    div#side-bar {
+        float: left;
+        width: 400px;
+    }
+
+    div#side-bar a.decor {
+        display: block;
+        margin: 10px 20px;
+
+    }
+    div#side-bar a.decor img{
+        width: 100px;
+    }
+    /*footer styles*/
+
+    div#footer {
+        clear: left;
+        margin-left: 200px;
+        width: 800px;
+        color: white;
+        /*updated color of the footer navigation from using 51min 18sec*/
+        /*background-color: black;*/
+    }
+    p#footer-nav {
+        float: left;
+        width: 400px;
+    }
+
+    p#footer-nav a{
+        color: inherit;
+    }
+
+    p#copyright {
+        color: white;
+        float: right;
+        width: 400px;
+        text-align: right;
+        /*background-color: black;*/
+    }
 
 }

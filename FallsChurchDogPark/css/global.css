@@ -14,7 +14,7 @@ div#title-box {
     width: 800px;
     margin-left: 200px;
 }
-/*responsive video*/
+/*responsive video, USED?*/
 div#title-box h1{
     font-size: xx-large;
 }
@@ -24,6 +24,7 @@ div#title-box h2{
     display: block;
 }
 /*responsive video*/
+
 div#title-box img {
     float: left;
     width: 100px;
@@ -65,6 +66,7 @@ ul#primary-nav li a:hover {
 /*time 1.09.30*/
 ul#primary-nav li a.selected {
     background-color: black;
+
 
 }
 
@@ -119,6 +121,8 @@ div.lostpost-story div.lostpost-pts {
 }
 /*come back to for lost and found page*/
 
+
+/**/
 div.lostpost-story h3.lostpost-title {}
 
 div.lostpost-story p.lostpost-description,
