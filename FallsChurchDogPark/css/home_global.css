@@ -51,11 +51,11 @@ ul#primary-nav li a {
     color: #fff;
 }
 ul#primary-nav li a:hover {
-    background-color: lightblue;
+    background-color: red;
 }
 /*time 1.09.30*/
 ul#primary-nav li a.selected {
-    background-color: blue;
+    background-color: #000;
 
 }
 
@@ -65,69 +65,45 @@ div#content{
     clear: left;
     background-color: aliceblue;
     overflow: hidden;
+    clear: left;
+    margin: 0 0 0 200px; padding: 0;
 }
 
-ul#side-tabs {
-    float: left;
-    width: 200px;
-    padding-left: 8;
-    list-style-type: none;
-}
-
-ul#side-tabs li a {
-    display: block;
-    text-decoration: none;
-    padding: 10px 15px;
-    background-color: black;
-    color: white;
-    text-align: right;
-}
-
-ul#side-tabs li a:hover {
-    background-color: lightblue;
-}
-
-ul#side-tabs li a.selected {
-    background-color: blue;
-}
-
-
-div#lostpost {
+div#history {
     float: left;
     width: 800px;
     background-color: #fff;
+
 }
 
-
-div#lostpost-story {
+div#history-story {
     border-bottom: 1px solid #ccc
 }
 /*come back to for lost and found page*/
-div.lostpost-story div.lostpost-pts {
+div.lostpost-story div-lostpost-pts {
     float: left;
-    width: 100px;
+    width: 10px;
     font-size: x-large;
     text-align: center;
 }
 /*come back to for lost and found page*/
 
-div.lostpost-story h3.lostpost-title {}
+div.history-story h3.history-title {}
 
-div.lostpost-story p.lostpost-description,
-div.lostpost-story p.lostpost-byline {
+div.history-story p.history-description {
     margin-left: 100px;
 }
-/*need to align all content*/
+
 div#side-bar {
     float: left;
     width: 400px;
 }
 
-div#side-bar a.decor {
+div#side-bar a.ad {
     display: block;
-    margin: 10px 0;
+    margin: 0px 0;
 }
-div#side-bar a.decor img{
+div#side-bar a.ad img{
     width: 100px;
 
 }
@@ -151,7 +127,6 @@ p#footer-nav a{
 }
 
 p#copyright {
-    color: black;
     float: right;
     width: 400px;
     text-align: right;
