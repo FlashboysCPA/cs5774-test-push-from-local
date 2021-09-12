@@ -1,0 +1,9 @@
+
+div#title-box h2 {
+    display: none;
+     }
+
+@media all and (min-wdith:376px) {
+/*    copy and paste over the css code*/
+
+}
