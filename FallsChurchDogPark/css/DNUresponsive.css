@@ -1,6 +1,3 @@
-/*end time at 38.09 time for updating the code to the css, also still need to create the other html files*/
-
-
 html, body {
     margin: 0; padding: 0;
     font-family: Arial, sans-serif;
@@ -30,94 +27,11 @@ ul#primary-nav {
     padding: 0;
     list-style-type: none;
 }
-ul#primary-nav li a {
-    display: block;
-    text-decoration: none;
-    padding: 10px 15px;
-    background-color: dimgray;
-    color: #fff;
-}
-
-ul#primary-nav li a.selected {
-    background-color: black;
-}
-ul#side-tabs {
-    padding-left: 0px;
-    list-style-type: none;
-}
-
-ul#side-tabs li {
-    float: left;
-}
-
-ul#side-tabs li a {
-    display: block;
-    text-decoration: none;
-    padding: 10px 15px;
-    background-color: dimgray;
-    color: black;
-    text-align: center;
-    margin-bottom: 5px;
-}
-
-
-
-ul#side-tabs li a.selected {
-    background-color: black;
-    font-weight: bold;
-    color: white;
-}
-h2#section-heading{
-    clear: left
-}
-
-div#lostpost-story {
-    border-bottom: 1px solid #ccc;
-}
-
-
-div.lostpost-story div.lostpost-pts {
-    float: left;
-    font-size: x-large;
-    text-align: center;
-    width: 50px;
-    margin-bottom: 20px;
-}
-
-div.lostpost-story p.lostpost-description{
-    display: none;
-}
-
-div.lostpost-story p.lostpost-byline {
-    font-size: small;
-    margin-left: 50px;
-}
-
-div#side-bar a.decor, p#footer-nav {
-    display: none;
-}
-
-div#side-bar input[name="search"]{
-    margin-top: 10px;
-    /*margin-left: 20px;*/
-    width: 100%;
-}
-@media all and (max-width: 1099px) {
-    div.lostpost-story a.comments {
-        display: block;
-        text-decoration: none;
-        background-color: cadetblue;
-        color: white;
-        padding: 10px 0;
-        width: 40%;
-        text-align: center;
-    }
-}
 
 /*responsive video at 30min for primary nav*/
 /*Switches from mobile to desktop starting here for purposes of display as iphone x*/
 
-@media all and (min-width: 1100px) {
+@media all and (min-width: 376px) {
 /*    copy and paste over the css code*/
     html, body {
         background-color: lightslategray;
@@ -130,8 +44,8 @@ div#side-bar input[name="search"]{
 
     div#title-box {
         float: left;
-        width: 50%;
-        margin-left: 14%;
+        width: 800px;
+        margin-left: 200px;
     }
     /*responsive video, USED?*/
     div#title-box h1{
@@ -147,7 +61,7 @@ div#side-bar input[name="search"]{
     div#title-box img {
         display: inline;
         float: left;
-        max-width: 100px;
+        width: 100px;
         margin: 20px 10px 0 0;
     }
 
@@ -161,18 +75,30 @@ div#side-bar input[name="search"]{
 
     ul#primary-nav {
         clear: left;
-        margin: 0 0 0 14%;
+        margin: 0 0 0 200px; padding: 0;
+        list-style-type: none;
     }
 
     ul#primary-nav li {
         float: left;
     }
 
-
+    ul#primary-nav li a {
+        display: block;
+        text-decoration: none;
+        padding: 10px 15px;
+        background-color: dimgray;
+        color: #fff;
+    }
     ul#primary-nav li a:hover {
         background-color: gray;
     }
+    /*time 1.09.30*/
+    ul#primary-nav li a.selected {
+        background-color: black;
 
+
+    }
 
     /*content styles*/
 
@@ -184,36 +110,44 @@ div#side-bar input[name="search"]{
 
     ul#side-tabs {
         float: left;
-        width: 14%;
+        width: 200px;
         /*aligning the content with the top navigaiton tabs, offset by 0*/
-        padding-top: 50px;
-    }
-
-    ul#side-tabs li {
-        float: none;
+        padding-left: 0px;
+        list-style-type: none;
     }
 
     ul#side-tabs li a {
+        display: block;
+        text-decoration: none;
+        padding: 10px 15px;
+        background-color: dimgray;
+        color: black;
         text-align: right;
     }
 
     ul#side-tabs li a:hover {
         background-color: gray;
     }
-    h2#section-heading{
-        margin-left: 30px;
-    }
 
+    ul#side-tabs li a.selected {
+        background-color: #fff;
+        font-weight: bold;
+    }
 
     div#lostpost {
         float: left;
-        width: 50%;
+        width: 800px;
         background-color: #fff;
     }
-
+    div#lostpost-story {
+        border-bottom: 1px solid #ccc;
+    }
     /*come back to for lost and found page*/
     div.lostpost-story div.lostpost-pts {
+        float: left;
         width: 100px;
+        font-size: x-large;
+        text-align: center;
     }
     /*come back to for lost and found page*/
 
@@ -223,12 +157,10 @@ div#side-bar input[name="search"]{
 
     div.lostpost-story p.lostpost-description,
     div.lostpost-story p.lostpost-byline {
-        display: block;
         margin-left: 100px;
     }
     div.lostpost-story p.lostpost-byline {
-        /*font-size: small;*/
-        margin-left: 100px;
+        font-size: small;
     }
 
     /*need to align all content*/
@@ -237,50 +169,37 @@ div#side-bar input[name="search"]{
         width: 400px;
     }
 
-    div#side-bar div.extra-padding{
-        padding: 10px;
-    }
-
     div#side-bar a.decor {
         display: block;
         margin: 10px 20px;
-        max-width: 100%;
 
     }
     div#side-bar a.decor img{
-        width: 37.5%;
+        width: 100px;
     }
-    div#side-bar input[name="search"]{
-        margin-top: 0px;
-        width: auto;
-    }
-
     /*footer styles*/
 
     div#footer {
         clear: left;
-        margin-left: 14%;
-        width: 50%;
+        margin-left: 200px;
+        width: 800px;
         color: white;
         /*updated color of the footer navigation from using 51min 18sec*/
         /*background-color: black;*/
     }
     p#footer-nav {
-        display: block;
         float: left;
-        width: 50%;
+        width: 400px;
     }
 
     p#footer-nav a{
         color: inherit;
     }
 
-
-
     p#copyright {
         color: white;
         float: right;
-        width: 50%;
+        width: 400px;
         text-align: right;
         /*background-color: black;*/
     }
