@@ -1,0 +1,37 @@
+$(document).ready(function(){
+    //event handler for upvote button- need to do downvote button still
+    //    jquery for points related to score
+    $('div.lostpost-pts button.upvote').click(function (){
+        var scoreDiv = $(this).siblings('div.score');
+
+        var scoreNum = parseInt($(scoreDiv).text());
+        scoreNum++;
+
+        console.log(scoreNum);
+
+        $(scoreDiv).text(scoreNum);
+
+        var successMsg = $('<p class="upvote-success">Upvote Successful!</p>')
+        // $(this).parent().append(successMsg)
+        $(successMsg).appendTo( $(this).parent() ).fadeOut('slow', function (){
+            $(this).remove();
+        }) ;
+    });
+//    check querystring
+    checkQueryString();
+})
+function checkQueryString(){
+    var querystring = window.location.search;
+    // console.log(querystring);
+
+    var urlParams = new URLSearchParams(querystring);
+    if (urlParams.has("search-page")){
+        var keyword = urlParams.get("search-page");
+        if (keyword=='dog'){
+            window.alert("you searched dog");
+        }
+        else{
+            window.alert("you did NOT search dog")
+        }
+    }
+}

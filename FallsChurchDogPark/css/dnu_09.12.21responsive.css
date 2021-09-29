@@ -77,21 +77,10 @@ div#lostpost-story {
 
 div.lostpost-story div.lostpost-pts {
     float: left;
-    width: 50px;
-    margin-bottom: 20px;
     font-size: x-large;
     text-align: center;
-}
-
-div.lostpost-story div.lostpost-pts button {
-    display: block;
-    width: 90%
-}
-
-div.lostpost-story div.lostpost-pts .upvote-success {
-    color: cadetblue;
-    font-size: xx-small;
-    margin-bottom: 10%;
+    width: 50px;
+    margin-bottom: 20px;
 }
 
 div.lostpost-story p.lostpost-description{
@@ -112,59 +101,6 @@ div#side-bar input[name="search"]{
     /*margin-left: 20px;*/
     width: 100%;
 }
-
-/*Enter text for creating post*/
-div#lostpost input[name="post-title"]{
-    display: block;
-    margin-bottom: 5px;
-    width: 40%;
-    text-align: center;
-    margin-left: 14%;
-
-}
-div#lostpost input[name="post-description"]{
-    display: block;
-    margin-bottom: 5px;
-    width: 40%;
-    text-align: center;
-    margin-left: 14%;
-}
-
-
-/*buttons for the add psot*/
-div.post-button a.postbutton-create {
-    display: block;
-    text-decoration: none;
-    background-color: cadetblue;
-    color: white;
-    padding: 10px 0;
-    width: 40%;
-    text-align: center;
-    margin-left: 14%;
-}
-    div.post-button a.postbutton-update {
-    display: block;
-    text-decoration: none;
-    background-color: cadetblue;
-    color: white;
-    padding: 10px 0;
-    width: 40%;
-    text-align: center;
-    margin-left: 14%;
-}
-    div.post-button a.postbutton-delete {
-    display: block;
-    text-decoration: none;
-    background-color: cadetblue;
-    color: white;
-    padding: 10px 0;
-    width: 40%;
-    text-align: center;
-    margin-left: 14%;
-}
-
-
-
 /*new media for pusposes of adjusting comments from hyperlink in desktop to button in mobile display or view size*/
 @media all and (max-width: 1099px) {
     div.lostpost-story a.comments {
@@ -340,5 +276,7 @@ div.post-button a.postbutton-create {
         float: right;
         width: 50%;
         text-align: right;
+        /*background-color: black;*/
     }
+
 }
