@@ -1,0 +1,48 @@
+{% extends "dogs/base.html" %}
+{% block page-title %}Lost Post{% endblock %}
+
+{% block side-tabs %}
+    <li><a href="#" class="selected">Popular</a> </li>
+    <li><a href="#">Newest</a> </li>
+    <li><a href="#">Controversial</a> </li>
+{% endblock %}
+
+{% block content %}
+    <h2 id="section-heading">Lost and Found</h2>
+
+      <div class="lostpost-story">
+
+        <div class="lostpost-pts">
+          <button class="upvote">Upvote</button>
+          <div class="score">11</div>
+          <button class="downvote">Downvote</button>
+        </div>
+
+
+        <h3 class="lostpost-title"><a href="https://www.awla.org/services/for-you/lost-found/found-animals/"> Lost Golden Retriever</a></h3>
+        <p class="lostpost-description"> My dog is a yellow and gold color and weighs about 50 lbs. Please contact me if found.</p>
+        <p class="lostpost-byline">Submitted by <a href="#">Jdoe</a> 23 hours ago - <a href="#" class="comments">View 2 comments</a> </p>
+
+        <div class="lostpost-follow">
+          <button class="follow">Follow</button>
+          <p class="lostpost-trackstatus">Track the status of this post.</p>
+        </div>
+      </div>
+
+    <div class="lostpost-story">
+      <div class="lostpost-pts">
+          <BUTTON class="upvote">Upvote</BUTTON>
+          <div class="score">3</div>
+          <button class="downvote">Downvote</button>
+        </div>
+
+        <h3 class="lostpost-title"><a href="https://www.awla.org/services/for-you/lost-found/found-animals/"> Lost Black Cat</a></h3>
+        <p class="lostpost-description"> My cat hasn't been home since last week on 09.02.21. Please look out for her! She was last seen in Falls Church plaza.</p>
+        <p class="lostpost-byline">Submitted by <a href="#">Bsmith</a> 45 hours ago - <a href="#" class="comments">View 6 comments</a> </p>
+
+      <div class="lostpost-follow">
+          <button class="follow">Follow</button>
+          <p class="lostpost-trackstatus">Track the status of this post.</p>
+      </div>
+    </div>
+{% endblock %}

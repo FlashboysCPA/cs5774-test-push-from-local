@@ -1,0 +1,79 @@
+{%  load static %}
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+<!--Responsive design to replace the original global css file to adjust between desktop and mobile-->
+    <meta name="viewport" content="width=device-width">
+
+
+      <title>Falls Church Dog Park | {% block page-title %} {% endblock %}</title>
+      <link rel="stylesheet" type="text/css" href="{% static "css/responsive.css" %}">
+
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/scripts.js"></script>
+
+  </head>
+  <body>
+
+  <div id="header">
+
+    <div id="title-box">
+      <img src={% static "img/dog.png" %}" alt="Logo">
+      <h1>Falls Church Dog Park</h1>
+      <h2>Sponsoring Volunteer Group for the Falls Church Dog Park</h2>
+    </div><!-- #title -->
+
+    <form id = "Login-box">
+      <input type="text" name="username" placeholder="USERNAME">
+      <input type="password" name="pw" placeholder="PASSWORD">
+      <input type="submit" name="submit" value="Log in"> or <a href="#">Register</a>
+    </form>
+    <ul id="primary-nav">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="list.html" >Lost and Found Pets</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="parkrules.html">Park Rules</a></li>
+    </ul>
+
+  </div><!-- #header -->
+
+  <div id="content">
+
+    <ul id="side-tabs">
+
+        {% block side-tabs %} {% endblock %}
+    </ul>
+
+    <div id ="lostpost">
+      {% block content %} {% endblock %}
+    </div>
+{#  </div>#}
+
+  <div id="side-bar">
+      <div class="extra-padding">
+        <form action="search-results.html" method="get">
+          <input type="text" name="search-page" placeholder="Type 'dog' to avoid error.">
+          <input type="submit" name="Search" value="Search">
+        </form>
+
+        <form action="follow-results.html" method="get">
+          <input type="button" name="follow-page" value="View Status of Posts Followed">
+        </form>
+
+
+        <a href="#" class="decor"><img src="img/paw.png" alt="Decor"></a>
+        <a href="#" class="decor"><img src="img/paw.png" alt="Decor"></a>
+      </div>
+
+  </div>
+
+  <div id="footer">
+    <p id="footer-nav"><a href="#">Home</a> | <a href="#">About</a> | <a href="#">Privacy</a> | <a href="#">Contact Us</a></p>
+    <p id="copyright">Copyright 2021 VT Project. All rights reserved</p>
+  </div>
+
+  </div>
+  </body>
+</html>

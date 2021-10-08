@@ -1,3 +1,36 @@
+/*css code for the project 3 event delegation and dom traversal*/
+
+.redevent {
+    background-color: red;
+    list-style-type: none;
+}
+.greenevent {
+    background-color: green;
+    list-style-type: none;
+}
+
+.dogparkevent {
+    background-color: red;
+    list-style-type: none;
+    margin-left: 5%;
+}
+.otherevent {
+    background-color: green;
+    list-style-type: none;
+    margin-left: 5%;
+
+}
+
+.js-highlight{
+    border: 3px solid #000000;
+}
+/*event delegation for child element that doesnt exist yet for the follow button*/
+div.lostpost-follow .follow-success {
+    color: green;
+    font-size: xx-small;
+    margin-bottom: 10%;
+}
+
 /*responsive css to replace global while still using code from global css*/
 
 html, body {
@@ -74,7 +107,39 @@ div#lostpost-story {
     border-bottom: 1px solid #ccc;
 }
 
+/*creating feature for favoriting*/
+div.lostpost-story div.lostpost-follow {
+    float: bottom;
+    width: 100%;
+    margin-bottom: 20px;
+    font-size: medium;
+    text-align: left;
+}
 
+div.lostpost-story div.lostpost-follow button {
+    display: block;
+    margin-left: 100px;
+    margin-right: 5px;
+    float: left;
+    text-align: center;
+}
+/*attend event listed*/
+div.lostpost-story div.lostpost-attendancepts {
+    float: left;
+    width: 50px;
+    margin-bottom: 20px;
+    font-size: x-large;
+    text-align: center;
+}
+
+div.lostpost-story div.lostpost-attendancepts button {
+    display: block;
+    width: 120%
+    text-align: center;
+}
+
+
+/*track points for upvote and downvote of lostandfound posts*/
 div.lostpost-story div.lostpost-pts {
     float: left;
     width: 50px;
@@ -88,9 +153,23 @@ div.lostpost-story div.lostpost-pts button {
     width: 90%
 }
 
+/*messages for successful upvote, downvote*/
 div.lostpost-story div.lostpost-pts .upvote-success {
-    color: cadetblue;
+    color: green;
     font-size: xx-small;
+    margin-bottom: 10%;
+}
+
+div.lostpost-story div.lostpost-pts .downvote-success {
+    color: red;
+    font-size: xx-small;
+    margin-bottom: 10%;
+}
+
+/*messages for successful attendance recorded*/
+div.lostpost-story div.lostpost-attendancepts .attend-success{
+    color: lightblue;
+    font-size: small;
     margin-bottom: 10%;
 }
 
@@ -107,12 +186,17 @@ div#side-bar a.decor, p#footer-nav {
     display: none;
 }
 
-div#side-bar input[name="search"]{
+div#side-bar input[name="search-page"]{
     margin-top: 10px;
     /*margin-left: 20px;*/
-    width: 100%;
+    width: 40%;
 }
 
+div#side-bar input[name="follow-page"]{
+    margin-top: 10px;
+    /*margin-left: 20px;*/
+    width: 59%;
+}
 /*Enter text for creating post*/
 div#lostpost input[name="post-title"]{
     display: block;
@@ -213,6 +297,15 @@ div.post-button a.postbutton-create {
         max-width: 100px;
         margin: 20px 10px 0 0;
     }
+    div#title-box input[name="header-search-page"]{
+        float: left;
+        width: 25%;
+        margin: 0 10px 10px 0;
+    }
+    div#title-box input[name="headerSearch"]{
+        margin-top: 0;
+        width: auto;
+    }
 
     form#Login-box {
         float: left;
@@ -278,6 +371,18 @@ div.post-button a.postbutton-create {
         width: 100px;
     }
 
+    /*display for events page to create space for attendance counter*/
+    div.lostpost-story h2.lostpost-title2{
+        display: block;
+        margin-left: 10%;
+    }
+    div.lostpost-story p.lostpost-description2 {
+        display: block;
+        margin-left: 10%;
+        margin-bottom: 8%;
+    }
+
+    /*display for lostpost div used in most of the pages*/
     div.lostpost-story h3.lostpost-title {}
 
     div.lostpost-story p.lostpost-description,

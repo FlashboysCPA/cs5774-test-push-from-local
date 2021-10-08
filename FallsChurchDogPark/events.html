@@ -2,11 +2,12 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
+<!--Responsive design to replace the original global css file to adjust between desktop and mobile-->
     <meta name="viewport" content="width=device-width">
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">-->
     <title>Falls Church Dog Park</title>
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/scripts.js"></script>
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
-<!--    <link rel="stylesheet" type="text/css" href="css/global.css"> switch for responsive file-->
   </head>
   <body>
 
@@ -24,48 +25,90 @@
       <input type="submit" name="submit" value="Log in"> or <a href="#">Register</a>
     </form>
     <ul id="primary-nav">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Lost and Found Pets</a></li>
-      <li><a href="#" class="selected">Events</a></li>
-      <li><a href="#">Park Rules</a></li>
+    <li><a href="index.html">Home</a></li>
+      <li><a href="list.html">Lost and Found Pets</a></li>
+      <li><a href="events.html" class="selected">Events</a></li>
+      <li><a href="parkrules.html">Park Rules</a></li>
+
     </ul>
 
   </div><!-- #header -->
 
   <div id="content">
-<!--side tabs not used in home tab of web app-commented out-->
-<!--    <ul id="side-tabs">-->
-<!--        <li><a href="#" class="selected">Popular</a> </li>-->
-<!--        <li><a href="#">Newest</a> </li>-->
-<!--        <li><a href="#">Controversial</a> </li>-->
-<!--    </ul>-->
+    <ul id="side-tabs">
+    </ul>
 
     <div id ="lostpost">
       <h2 id="section-heading">Please join us for all of our upcoming community events!</h2>
 
       <div class="lostpost-story">
-<!--        <div class="lostpost-pts">11</div>-->
-        <h3 class="lostpost-title">  Date: 09/30/2021</h3>
-        <p class="lostpost-description"> Event: Great Dane Meetup</p>
-<!--        <p class="lostpost-byline">Submitted by <a href="#">Jdoe</a> 23 hours ago - <a href="#" class="comments">View 2 comments</a> </p>-->
+
+<!--        will only color code the recent event additions with the radio button-->
+        <div class="lostpost-attendancepts">
+          <div class="attendancescore">4</div>
+          <button class="attend">Attend</button>
+        </div>
+        <li class="redevent">
+        <h2 class="lostpost-title2">  Event: Great Dane Meetup</h2>
+        <p class="lostpost-description2">Date: 2021-09-30 </p>
+
       </div>
 
     <div class="lostpost-story">
-<!--        <div class="lostpost-pts">3</div>-->
-        <h3 class="lostpost-title">Date: 09/11/2021</h3>
-        <p class="lostpost-description"> Event: Volunteer Group Saturday Meet Up</p>
-<!--        <p class="lostpost-byline">Submitted by <a href="#">Bsmith</a> 45 hours ago - <a href="#" class="comments">View 6 comments</a> </p>-->
+
+      <div class="lostpost-attendancepts">
+          <div class="attendancescore">2</div>
+          <button class="attend">Attend</button>
       </div>
+
+      <li class="greenevent">
+      <h2 class="lostpost-title2">Event: Volunteer Group Saturday Meet Up</h2>
+      <p class="lostpost-description2">Date: 2021-09-11 </p>
+      </div>
+<!--end of hardcoded events-->
+
+<!--  to add events to the page-->
+      <form class="form" method="post" action="events.html">
+
+        <div>
+          <label for="eventname">Event Name</label>
+          <input class="eventname" id="eventname">
+        </div>
+
+        <div>
+          <label for="eventdate">Date</label>
+          <input class="eventdate" type="date" id="eventdate">
+        </div>
+
+        <fieldset>
+          <input type="radio" id="dogparkevent" name="eventtype" value="dogparkevent" required>
+          <label for="dogparkevent">Dog Park Event</label>
+          <input type="radio" id="otherevent" name="eventtype" value="otherevent" required>
+          <label for="otherevent">Other Event</label>
+        </fieldset>
+
+        <button type="submit">Add</button>
+
+        <ol class="events">
+          <li class="dogparkevent">
+            <h2>Event: Dog Park Event</h2>
+            <p>Date: 2021-10-01</p>
+          </li>
+        </ol>
+        <script src="js/jquery-3.6.0.min.js"></script>
+        <script src="js/forms.js"></script>
+      </form>
+
+
+
     </div>
 
   <div id="side-bar">
       <div class="extra-padding">
-        <form>
-          <input type="text" name="search" placeholder="Search page">
+        <form action="search-results.html" method="get">
+          <input type="text" name="search-page" placeholder="Type 'dog' to avoid error.">
+          <input type="submit" name="Search" value="Search">
         </form>
-<!--images are not needed in side bar outside of home and list page          -->
-<!--        <a href="#" class="decor"><img src="img/doggybathcompany.png" alt="Ad"></a>-->
-<!--        <a href="#" class="decor"><img src="img/doggybathcompany.png" alt="Ad"></a>-->
       </div>
 
 <!--<img src="img/dog.png" alt="Logo">-->

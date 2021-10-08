@@ -1,3 +1,8 @@
+need to add files to the following directory in order to host on vt using filezilla
+/home/web/people/jason93/FallsChurchDogPark
+
+
+code for upvote before changes
 $(document).ready(function(){
     //event handler for upvote button- need to do downvote button still
     //    jquery for points related to score

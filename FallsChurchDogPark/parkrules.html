@@ -24,21 +24,17 @@
       <input type="submit" name="submit" value="Log in"> or <a href="#">Register</a>
     </form>
     <ul id="primary-nav">
-      <li><a href="#">Home</a></li>
-      <li><a href="#">Lost and Found Pets</a></li>
-      <li><a href="#">Events</a></li>
-      <li><a href="#" class="selected">Park Rules</a></li>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="list.html">Lost and Found Pets</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="parkrules.html" class="selected">Park Rules</a></li>
     </ul>
 
   </div><!-- #header -->
 
   <div id="content">
-<!--side tabs not used in home tab of web app-commented out-->
-<!--    <ul id="side-tabs">-->
-<!--        <li><a href="#" class="selected">Popular</a> </li>-->
-<!--        <li><a href="#">Newest</a> </li>-->
-<!--        <li><a href="#">Controversial</a> </li>-->
-<!--    </ul>-->
+          <ul id="side-tabs">
+          </ul>
 
     <div id ="lostpost">
       <h2 id="section-heading">Please Follow Park Rules and Contact Department of Animal Control to Report Bites and Attacks</h2>
@@ -70,12 +66,10 @@
 
   <div id="side-bar">
       <div class="extra-padding">
-        <form>
-          <input type="text" name="search" placeholder="Search page">
+        <form action="search-results.html" method="get">
+          <input type="text" name="search-page" placeholder="Type 'dog' to avoid error.">
+          <input type="submit" name="Search" value="Search">
         </form>
-<!--images are not needed in side bar outside of home and list page          -->
-<!--        <a href="#" class="decor"><img src="img/doggybathcompany.png" alt="Ad"></a>-->
-<!--        <a href="#" class="decor"><img src="img/doggybathcompany.png" alt="Ad"></a>-->
       </div>
 
 <!--<img src="img/dog.png" alt="Logo">-->

@@ -9,6 +9,8 @@
     <script src="js/scripts.js"></script>
     <link rel="stylesheet" type="text/css" href="css/responsive.css">
 <!--    <link rel="stylesheet" type="text/css" href="css/global.css"> switch for responsive file-->
+
+
   </head>
   <body>
 
@@ -18,6 +20,11 @@
       <img src="img/dog.png" alt="Logo">
       <h1>Falls Church Dog Park</h1>
       <h2>Sponsoring Volunteer Group for the Falls Church Dog Park</h2>
+        <form action="search-results.html" method="get">
+          <input type="text" name="header-search-page" placeholder="Type 'dog' to avoid error.">
+          <input type="submit" name="headerSearch" value="Search">
+        </form>
+
     </div><!-- #title -->
 
     <form id = "Login-box">
@@ -26,21 +33,17 @@
       <input type="submit" name="submit" value="Log in"> or <a href="#">Register</a>
     </form>
     <ul id="primary-nav">
-      <li><a href="#" class="selected">Home</a></li>
-      <li><a href="#">Lost and Found Pets</a></li>
-      <li><a href="#">Events</a></li>
-      <li><a href="#">Park Rules</a></li>
+      <li><a href="index.html" class="selected">Home</a></li>
+      <li><a href="list.html">Lost and Found Pets</a></li>
+      <li><a href="events.html">Events</a></li>
+      <li><a href="parkrules.html">Park Rules</a></li>
     </ul>
 
   </div><!-- #header -->
 
   <div id="content">
-<!--side tabs not used in home tab of web app-commented out-->
-<!--    <ul id="side-tabs">-->
-<!--        <li><a href="#" class="selected">Popular</a> </li>-->
-<!--        <li><a href="#">Newest</a> </li>-->
-<!--        <li><a href="#">Controversial</a> </li>-->
-<!--    </ul>-->
+          <ul id="side-tabs">
+          </ul>
 
     <div id ="lostpost">
       <h2 id="section-heading">Welcome to the dog park and the community!</h2>
@@ -62,9 +65,9 @@
 
   <div id="side-bar">
       <div class="extra-padding">
-        <form>
-          <input type="text" name="search" placeholder="Search page">
-        </form>
+<!--        <form>-->
+<!--          <input type="text" name="search" placeholder="Search page">-->
+<!--        </form>-->
         <a href="#" class="decor"><img src="img/doggybathcompany.png" alt="Ad"></a>
         <a href="#" class="decor"><img src="img/doggybathcompany.png" alt="Ad"></a>
       </div>
