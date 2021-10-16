@@ -1,5 +1,10 @@
 {% extends "dogs/base.html" %}
+{% load static %}
+{% load humanize %}
+
 {% block page-title %}Lost Post{% endblock %}
+
+{% block scripts %} <script src="{% static "js/list.js" %}">{% endblock %}
 
 {% block side-tabs %}
     <li><a href="#" class="selected">Popular</a> </li>
@@ -9,40 +14,43 @@
 
 {% block content %}
     <h2 id="section-heading">Lost and Found</h2>
-
-      <div class="lostpost-story">
+    {% for story in stories %}
+{#        {{ story.title }}#}
+        <div class="lostpost-story">
 
         <div class="lostpost-pts">
           <button class="upvote">Upvote</button>
-          <div class="score">11</div>
+          <div class="score">{{ story.score }}</div>
           <button class="downvote">Downvote</button>
         </div>
 
-
-        <h3 class="lostpost-title"><a href="https://www.awla.org/services/for-you/lost-found/found-animals/"> Lost Golden Retriever</a></h3>
-        <p class="lostpost-description"> My dog is a yellow and gold color and weighs about 50 lbs. Please contact me if found.</p>
-        <p class="lostpost-byline">Submitted by <a href="#">Jdoe</a> 23 hours ago - <a href="#" class="comments">View 2 comments</a> </p>
-
-        <div class="lostpost-follow">
-          <button class="follow">Follow</button>
-          <p class="lostpost-trackstatus">Track the status of this post.</p>
-        </div>
+        <h3 class="lostpost-title"><a href="{{ story.url }}"> {{ story.title }}</a></h3>
+        <p class="lostpost-description"> {{ story.description }}</p>
+        <p class="lostpost-byline">Submitted by <a href="#">{{ story.author }}</a> {{ story.date_posted|naturaltime }} - <a href="{% url "dogs:story-detail" story.id %}" class="comments">View comments</a> </p>
       </div>
+    {% endfor %}
 
-    <div class="lostpost-story">
-      <div class="lostpost-pts">
-          <BUTTON class="upvote">Upvote</BUTTON>
-          <div class="score">3</div>
-          <button class="downvote">Downvote</button>
-        </div>
 
-        <h3 class="lostpost-title"><a href="https://www.awla.org/services/for-you/lost-found/found-animals/"> Lost Black Cat</a></h3>
-        <p class="lostpost-description"> My cat hasn't been home since last week on 09.02.21. Please look out for her! She was last seen in Falls Church plaza.</p>
-        <p class="lostpost-byline">Submitted by <a href="#">Bsmith</a> 45 hours ago - <a href="#" class="comments">View 6 comments</a> </p>
+{##}
+{#    <div class="lostpost-story">#}
+{#      <div class="lostpost-pts">#}
+{#          <BUTTON class="upvote">Upvote</BUTTON>#}
+{#          <div class="score">3</div>#}
+{#          <button class="downvote">Downvote</button>#}
+{#        </div>#}
+{##}
+{#        <h3 class="lostpost-title"><a href="https://www.awla.org/services/for-you/lost-found/found-animals/"> Lost Black Cat</a></h3>#}
+{#        <p class="lostpost-description"> My cat hasn't been home since last week on 09.02.21. Please look out for her! She was last seen in Falls Church plaza.</p>#}
+{#        <p class="lostpost-byline">Submitted by <a href="#">Bsmith</a> 45 hours ago - <a href="#" class="comments">View 6 comments</a> </p>#}
+{##}
+{#      <div class="lostpost-follow">#}
+{#          <button class="follow">Follow</button>#}
+{#          <p class="lostpost-trackstatus">Track the status of this post.</p>#}
+{#      </div>#}
+{#    </div>#}
+{% endblock %}
 
-      <div class="lostpost-follow">
-          <button class="follow">Follow</button>
-          <p class="lostpost-trackstatus">Track the status of this post.</p>
-      </div>
-    </div>
+{% block footer %}
+    <p id="footer-nav"><a href="#">Home</a> | <a href="#">About</a> | <a href="#">Privacy</a> | <a href="#">Contact Us</a></p>
+    <p id="copyright">Copyright 2021 VT Project. All rights reserved</p>
 {% endblock %}

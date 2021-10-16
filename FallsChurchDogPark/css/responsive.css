@@ -441,7 +441,8 @@ div.post-button a.postbutton-create {
 
 
     p#copyright {
-        color: white;
+        /*color: white;*/
+        color: red;
         float: right;
         width: 50%;
         text-align: right;
