@@ -4,7 +4,9 @@
 
 {% block page-title %}Lost Post{% endblock %}
 
-{% block scripts %} <script src="{% static "js/list.js" %}">{% endblock %}
+{% block scripts %} <script src="{% static "js/list.js" %}"></script>{% endblock %}
+{# jquery file already included in the base html file - js/jquery-3.6.0.min.js#}
+
 
 {% block side-tabs %}
     <li><a href="#" class="selected">Popular</a> </li>
@@ -14,20 +16,34 @@
 
 {% block content %}
     <h2 id="section-heading">Lost and Found</h2>
+{#for passing the views.py lostpost_list that is using the models.py#}
     {% for story in stories %}
-{#        {{ story.title }}#}
+
         <div class="lostpost-story">
+            <div class="lostpost-pts">
 
-        <div class="lostpost-pts">
-          <button class="upvote">Upvote</button>
-          <div class="score">{{ story.score }}</div>
-          <button class="downvote">Downvote</button>
+                {% if request.session.username %}
+
+                <button class="upvote">Upvote</button>
+
+                {%  endif %}
+
+                <div class="score">{{ story.score }}</div>
+
+                {% if request.session.username %}
+
+              <button class="downvote">Downvote</button>
+
+                {% endif %}
+
+            </div>
+                <h3 class="lostpost-title"><a href="{{ story.url }}"> {{ story.title }}</a></h3>
+                <p class="lostpost-description"> {{ story.description }}</p>
+
+        {#        update the comments url on the list.html so that it dynamically links to the story details page for the story#}
+        {#        need to reference the app of dogs, used in the url.py#}
+                <p class="lostpost-byline">Submitted by <a href="#">{{ story.author }}</a> {{ story.date_posted|naturaltime }} - <a href="{% url "dogs:story-detail" story.id %}" class="comments">View comments</a> </p>
         </div>
-
-        <h3 class="lostpost-title"><a href="{{ story.url }}"> {{ story.title }}</a></h3>
-        <p class="lostpost-description"> {{ story.description }}</p>
-        <p class="lostpost-byline">Submitted by <a href="#">{{ story.author }}</a> {{ story.date_posted|naturaltime }} - <a href="{% url "dogs:story-detail" story.id %}" class="comments">View comments</a> </p>
-      </div>
     {% endfor %}
 
 

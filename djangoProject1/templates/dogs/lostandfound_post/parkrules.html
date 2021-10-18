@@ -1,0 +1,43 @@
+{% extends "dogs/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block page-title %}Lost Post{% endblock %}
+
+{% block scripts %} <script src="{% static "js/list.js" %}"></script>{% endblock %}
+
+{% block side-tabs %}
+{% endblock %}
+
+{% block content %}
+  <h2 id="section-heading">Please Follow Park Rules and Contact Department of Animal Control to Report Bites and Attacks</h2>
+
+      <div class="lostpost-story">
+<!--        <div class="lostpost-pts">11</div>-->
+        <h3 class="lostpost-title">  Rules and Regulations</h3>
+        <p class="lostpost-description"> Mandated by Falls Church Dog Park, Punishable by Falls Church</p>
+<!--        <p class="lostpost-byline">Submitted by <a href="#">Jdoe</a> 23 hours ago - <a href="#" class="comments">View 2 comments</a> </p>-->
+            <ul>
+                <li>All dogs must be licensed and vaccinated before entering the Dog Park.</li>
+                <li>Both rabies vaccinations tags and Dog License tags are required to be secured on your dog at all times.</li>
+                <li>No dogs less than four (4) months of age shall be permitted in a Dog Park.</li>
+                <li>Handlers / guardians are responsible for removing dog waste from the Park and disposing it in a proper receptacle.</li>
+                <li>Dogs must be leashed when entering and exiting the Dog Park.</li>
+                <li>Violations of the leash law, running at large law and not picking up after your dog can result in a summons to appear in court and a $100.00 fine.</li>
+            </ul>
+      </div>
+
+        <div class="lostpost-story">
+    <!--        <div class="lostpost-pts">3</div>-->
+            <h3 class="lostpost-title">Dog Park Map</h3>
+            <p class="lostpost-description"><a href="https://parks.arlingtonva.us/parksfacilities/dog-parks/">Please follow link to map of dog park on county site.</a> </p>
+    <!--        <p class="lostpost-byline">Submitted by <a href="#">Bsmith</a> 45 hours ago - <a href="#" class="comments">View 6 comments</a> </p>-->
+
+        </div>
+<!--end of hardcoded events-->
+{% endblock %}
+
+{% block footer %}
+    <p id="footer-nav"><a href="#">Home</a> | <a href="#">About</a> | <a href="#">Privacy</a> | <a href="#">Contact Us</a></p>
+    <p id="copyright">Copyright 2021 VT Project. All rights reserved</p>
+{% endblock %}

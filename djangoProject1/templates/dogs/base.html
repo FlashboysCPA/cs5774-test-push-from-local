@@ -3,16 +3,17 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+      <meta charset="utf-8">
 <!--Responsive design to replace the original global css file to adjust between desktop and mobile-->
-    <meta name="viewport" content="width=device-width">
-
-
+      <meta name="viewport" content="width=device-width">
       <title>Falls Church Dog Park | {% block page-title %} {% endblock %}</title>
+      <script src="{% static "js/jquery-3.6.0.min.js" %}"></script>
+      {% block scripts %} {% endblock %}
       <link rel="stylesheet" type="text/css" href="{% static "css/responsive.css" %}">
 
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="js/scripts.js"></script>
+{#      {% block scripts %} {% endblock %}#}
+{#    <script src="{% block scripts %} {% endblock %}"></script>#}
+{#javascript and jquery should be used in the base html file so that it is also used in other templates using the base#}
 
   </head>
   <body>
@@ -25,16 +26,33 @@
       <h2>Sponsoring Volunteer Group for the Falls Church Dog Park</h2>
     </div><!-- #title -->
 
-    <form id = "Login-box">
-      <input type="text" name="username" placeholder="USERNAME">
-      <input type="password" name="pw" placeholder="PASSWORD">
+{#  go to view py to see logic for redirecting for login request, go to models py to see the username and password used#}
+      {% if request.session.username %}
+
+      <form id = "login-box">
+          <p>Logged in as <strong>{{ request.session.username }}</strong> | <a href="{% url 'dogs:logout' %}">Log out</a> </p>
+      </form>
+
+      {% else %}
+
+{#          login box uses the url for login in views py#}
+    <form id = "Login-box" action="{% url "dogs:login" %}" method="POST">
+{#        csrf cros site request forgery protection- security measure to prevent site from being hijacked#}
+        {% csrf_token %}
+      <input type="text" name="username" placeholder="Username">
+      <input type="password" name="pw" placeholder="Password">
       <input type="submit" name="submit" value="Log in"> or <a href="#">Register</a>
     </form>
+
+      {% endif %}
+
+{#  need to update the primary nav so that is uses the urls py like how login is using the url from urls py#}
+{#  note how the urls py uses the vies py to render#}
     <ul id="primary-nav">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="list.html" >Lost and Found Pets</a></li>
-      <li><a href="events.html">Events</a></li>
-      <li><a href="parkrules.html">Park Rules</a></li>
+      <li><a href="{% url "dogs:home" %}">Home</a></li>
+      <li><a href="{% url "dogs:lostpost-list" %}" >Lost and Found Pets</a></li>
+      <li><a href="{% url "dogs:events" %}">Events</a></li>
+      <li><a href="{% url "dogs:parkrules" %}">Park Rules</a></li>
     </ul>
 
   </div><!-- #header -->
