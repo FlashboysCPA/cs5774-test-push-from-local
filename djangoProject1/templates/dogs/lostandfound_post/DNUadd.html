@@ -1,0 +1,40 @@
+{% extends "dogs/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block page-title %}Lost Post{% endblock %}
+
+{% block scripts %} <script src="{% static "js/list.js" %}"></script>{% endblock %}
+
+{% block styles %}
+{#<link rel="stylesheet" type="text/css" href="{% static "css/add_story.css" %}">#}
+<link rel="stylesheet" type="text/css" href="{% static "css/responsive.css" %}">
+{% endblock %}
+
+{#{% block page-title %} Submit Post {% endblock %}#}
+
+{% block content %}
+    <h2 id="section-heading">Submit Lost and Found Post</h2>
+
+    <div class="extra-padding">
+
+         <form id="add-news-story" action="#" method="post">
+             <p>* = required.</p>
+             <label for="add-title">Title</label>
+
+             <label for="add-description">Description</label>
+             <textarea id="add-description" name="add-description"></textarea>
+
+             <label for="add-url">URL*</label>
+             <input id="add-url" name="add-url" type="text" required>
+
+             <input type="submit" name="submit" value="Submit story">
+
+         </form>
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <p id="footer-nav"><a href="#">Home</a> | <a href="#">About</a> | <a href="#">Privacy</a> | <a href="#">Contact Us</a></p>
+    <p id="copyright">Copyright 2021 VT Project. All rights reserved</p>
+{% endblock %}

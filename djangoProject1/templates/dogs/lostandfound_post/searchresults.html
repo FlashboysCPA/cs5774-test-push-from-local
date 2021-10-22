@@ -1,0 +1,24 @@
+{% extends "dogs/base.html" %}
+{% load static %}
+{% load humanize %}
+
+{% block page-title %}Lost Post{% endblock %}
+
+{% block scripts %} <script src="{% static "js/list.js" %}"></script>{% endblock %}
+
+{% block side-tabs %}
+{% endblock %}
+
+{% block content %}
+ <h2 id="section-heading">Search results:</h2>
+
+        <h3 class="lostpost-title"><a href="https://www.awla.org/services/for-you/lost-found/found-animals/"> Lost Dog</a></h3>
+        <p class="lostpost-description"> My dog is missing. Please help!</p>
+        <p class="lostpost-byline">Submitted by <a href="#">Bsmith</a> 45 hours ago </p>
+
+{% endblock %}
+
+{% block footer %}
+    <p id="footer-nav"><a href="#">Home</a> | <a href="#">About</a> | <a href="#">Privacy</a> | <a href="#">Contact Us</a></p>
+    <p id="copyright">Copyright 2021 VT Project. All rights reserved</p>
+{% endblock %}

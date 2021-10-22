@@ -29,12 +29,16 @@
 {#  go to view py to see logic for redirecting for login request, go to models py to see the username and password used#}
       {% if request.session.username %}
 
-      <form id = "login-box">
+      <form id = "Login-box">
           <p>Logged in as <strong>{{ request.session.username }}</strong> | <a href="{% url 'dogs:logout' %}">Log out</a> </p>
       </form>
 
-      {% else %}
+      {% elif request.session.username2 %}
+      <form id = "Login-box">
+          <p>Logged in as <strong>{{ request.session.username2 }}</strong> | <a href="{% url 'dogs:logout2' %}">Log out</a> </p>
+      </form>
 
+      {% else %}
 {#          login box uses the url for login in views py#}
     <form id = "Login-box" action="{% url "dogs:login" %}" method="POST">
 {#        csrf cros site request forgery protection- security measure to prevent site from being hijacked#}
@@ -58,31 +62,50 @@
   </div><!-- #header -->
 
   <div id="content">
-
+{#  should be considered the MAIN#}
     <ul id="side-tabs">
 
         {% block side-tabs %} {% endblock %}
     </ul>
 
     <div id ="lostpost">
+
+        {#    insert message using django template#}
+{#    NEED TO ADD MESSAGE FOR OTHER ACTIONS, SUCH AS DELETE OR EDIT OF THE POST#}
+        {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+        {% endif %}
+
       {% block content %} {% endblock %}
     </div>
 {#  </div>#}
 
   <div id="side-bar">
       <div class="extra-padding">
-        <form action="search-results.html" method="get">
+
+{#          <form onsubmit="return setAction(this)" method="get">#}
+        <form action="{% url "dogs:searchresultsblank" %}" method="get">
           <input type="text" name="search-page" placeholder="Type 'dog' to avoid error.">
           <input type="submit" name="Search" value="Search">
         </form>
 
-          <form action="post-results.html" method="get">
-              <input type="button" name="post" value="Submit Lost and Found Pet Post">
-          </form>
+          {% if request.session.username %}
 
-        <form action="follow-results.html" method="get">
-          <input type="button" name="follow-page" value="View Status of Posts Followed">
-        </form>
+              <h3 class="lostpost-add"><a href="{% url "dogs:add" %}">Add Lost and Found Post</a></h3>
+              {% block detail-edit %} {% endblock %}
+
+          {% elif request.session.username2 %}
+
+              <h3 class="lostpost-add"><a href="{% url "dogs:add" %}">Add Lost and Found Post</a></h3>
+{#              {% block detail-edit %} {% endblock %}#}
+{#              included both edit and delete in this block for the admin#}
+              {% block detail-delete %} {% endblock %}
+
+          {% endif %}
 
         <a href="#" class="decor"><img src="{% static "img/paw.png" %}" alt="Decor"></a>
         <a href="#" class="decor"><img src="{% static "img/paw.png" %}" alt="Decor"></a>

@@ -16,8 +16,18 @@
 
 <!--        will only color code the recent event additions with the radio button-->
         <div class="lostpost-attendancepts">
-          <div class="attendancescore">4</div>
-          <button class="attend">Attend</button>
+
+            {% if request.session.username %}
+                <div class="attendancescore">2</div>
+                <button class="attend">Attend</button>
+
+            {% elif request.session.username2 %}
+                <div class="attendancescore">2</div>
+                <button class="attend">Attend</button>
+
+          {% endif %}
+
+
         </div>
         <li class="redevent">
         <h2 class="lostpost-title2">  Event: Great Dane Meetup</h2>
@@ -28,8 +38,16 @@
     <div class="lostpost-story">
 
       <div class="lostpost-attendancepts">
-          <div class="attendancescore">2</div>
-          <button class="attend">Attend</button>
+
+          {% if request.session.username %}
+              <div class="attendancescore">2</div>
+              <button class="attend">Attend</button>
+
+            {% elif request.session.username2 %}
+                <div class="attendancescore">2</div>
+                <button class="attend">Attend</button>
+
+          {% endif %}
       </div>
 
       <li class="greenevent">

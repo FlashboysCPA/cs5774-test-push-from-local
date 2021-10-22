@@ -1,32 +1,62 @@
 {% extends "dogs/base.html" %}
 {% load static %}
+{% load humanize %}
+
+{% block page-title %}Lost Post{% endblock %}
+
+{% block scripts %} <script src="{% static "js/list.js" %}"></script>{% endblock %}
 
 {% block styles %}
-<link rel="stylesheet" type="text/css" href="{% static "css/add_story.css" %}">
+{#<link rel="stylesheet" type="text/css" href="{% static "css/add_story.css" %}">#}
+<link rel="stylesheet" type="text/css" href="{% static "css/responsive.css" %}">
 {% endblock %}
 
-{% block page-title %} Submit Post {% endblock %}
+{#{% block page-title %} Submit Post {% endblock %}#}
 
 {% block content %}
     <h2 id="section-heading">Submit Lost and Found Post</h2>
 
     <div class="extra-padding">
 
-         <form id="add-news-story" action="#" method="post">
+         <form id="lostpost-story" action="{% url "dogs:add" %}" method="post">
              <p>* = required.</p>
-             <label for="add-title">Title</label>
 
-             <label for="add-description">Description</label>
-             <textarea id="add-description" name="add-description"></textarea>
+             <label for="add-title">Title*: </label>
+             <input id="post-title" name="post-title" type="text" required></input>
 
-             <label for="add-url">URL*</label>
-             <input id="add-url" name="add-url" type="text" required>
+             <label for="add-url">URL*: </label>
+             <input id="post-url" name="post-url" type="text" required>
 
-             <input type="submit" name="submit" value="Submit story">
+             <label for="add-contact">Contact info: </label>
+             <input id="post-contact" name="post-contact" type="text">
 
+             <label for="add-description">Description: </label>
+             <input id="post-description" name="post-description" type="text">
+
+             <input type="submit" name="submit" value="Submit Post">
+             {% csrf_token %}
+{#             <input type="hidden" name="author" value="{{request.session.username   }}">#}
+
+{#             <p class="add-title">Title: </p>#}
+{#             <input type="text" name="post-title"></input>#}
+{##}
+{#             <p class="add-url">URL*:</p>#}
+{#             <input type="text" name="post-url" type="text" required>#}
+{##}
+{#             <p class="add-contact">Contact info:</p>#}
+{#             <input type="text" name="post-contact"></input>#}
+{##}
+{#             <p class="add-description">Description:</p>#}
+{#             <input type="text" name="post-description"></input>#}
+
+{#             <div class="post-button">#}
+{#                 <p class="lostpost-byline"><a href="#" class="postbutton-create">Submit Post</a> </p>#}
+{#             </div>#}
          </form>
     </div>
 {% endblock %}
+
+{#{% block detail-delete-edit %} {% endblock %}#}
 
 {% block footer %}
     <p id="footer-nav"><a href="#">Home</a> | <a href="#">About</a> | <a href="#">Privacy</a> | <a href="#">Contact Us</a></p>
