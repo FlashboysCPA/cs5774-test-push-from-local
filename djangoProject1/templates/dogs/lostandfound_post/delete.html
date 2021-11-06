@@ -18,33 +18,31 @@
 
     <div class="extra-padding">
 
-         <form id="lostpost-story" action="#" method="post">
+        <form name="delete" id="delete-form" action="{% url "dogs:story-deletefromdatabase" %}" method="POST">
 
-             <label for="add-title">Press button to delete Lost and Found post selected.</label>
+            <div class="lostpost-story">
+                <p class="lostpost-title"> Post Title: {{ story.title }}</p>
+                <p class="lostpost-url"> Post URL: {{ story.url }}</p>
+                <p class="lostpost-description"> Post Description: {{ story.description }}</p>
+                <p class="lostpost-contact2"> Contact Info: {{ story.contact }}</p>
+            </div>
+
+            <label for="add-title">Press button to delete Lost and Found post selected.</label>
+{#            <button class="delete" data-story-id="{{ story.id }}" data-ajax-url="{% url "dogs:story-deletefromdatabase" %}">Delete</button>#}
+            <button id="delete" type="submit" class="delete" form="delete-form" formmethod="post">Delete</button>
+            {% csrf_token %}
+
+            <input type="hidden" name="id" value="{{ story.id }}">
+{#            <input type="hidden" name="title" value="{{ story.title }}">#}
+{#            <input type="hidden" name="description" value="{{ story.description }}">#}
 
 
-             <div class="lostpost-story">
-                 <h3 class="lostpost-title"><a href="{{ story.url }}"> {{ story.title }}</a></h3>
-                 <p class="lostpost-description"> {{ story.description }}</p>
-
-                 <p class="lostpost-contact"> <b> Contact info: {{ story.contact }}</b></p>
-
-                 <p class="lostpost-byline">Submitted by <a href="#">{{ story.author }}</a> </p>
-             </div>
-
+{#            PROJECT 5 FORM UNCOMMENT#}
 {#             <div class="post-button">#}
 {#                 <p class="lostpost-byline"><a href="#" class="postbutton-delete">Delete This Post</a> </p>#}
 {#                 <input type="submit" name="postbutton-create" value="Submit story">#}
 {#             </div>#}
-
-
          </form>
-
-        <div class="post-button">
-            <p class="lostpost-byline"><a href="{% url "dogs:lostpost-list" %}" class="postbutton-delete">Delete</a> </p>
-{#            <form action="{% url "dogs:lostpost-list" %}" method="get">#}
-{#             </form>#}
-        </div>
     </div>
 {% endblock %}
 

@@ -7,15 +7,16 @@
 {% block scripts %} <script src="{% static "js/list.js" %}"></script>{% endblock %}
 {# jquery file already included in the base html file - js/jquery-3.6.0.min.js#}
 
-
 {% block side-tabs %}
-    <li><a href="#" class="selected">Popular</a> </li>
-    <li><a href="#">Newest</a> </li>
-    <li><a href="#">Controversial</a> </li>
+{#    <li><a href="{% url "dogs:lostpost-list" %}" >Lost and Found Pets</a></li>#}
+    <li>Sort by:</li>
+    <li><a href="{% url "dogs:lostpost-list" %}">Popular (Votes Descending)</a> </li>
+    <li><a href="{% url "dogs:lostpost-list-date" %}">Newest (Date Ascending)</a> </li>
+    <li><a href="{% url "dogs:lostpost-list-date2" %}">Oldest (Date Descending)</a> </li>
 {% endblock %}
 
 {% block content %}
-{#    insert message using django template#}
+{#    insert message using django template, use this in base html#}
 {#    {% if messages %}#}
 {#    <ul class="messages">#}
 {#        {% for message in messages %}#}
@@ -23,11 +24,30 @@
 {#        {% endfor %}#}
 {#    </ul>#}
 {#    {% endif %}#}
+
     <h2 id="section-heading">Lost and Found</h2>
+    <li>Posts can be sorted by score or date posted</li>
+    {#    <h2 id="section-heading">*Posts can be sorted by score or date posted</h2>#}
+
+{#    PROJECT5 SORT DROPDOWN FOR SORTING USIGN AJAX#}
+{#      AJAX IN LIST.JS USES NAME "sort" #}
+            <div class="list-sorter">
+{#                <label for="sort">Sort By:</label>#}
+{#                <select name="sort" id="sort" data-ajax-url="{% url "dogs:list_sort_ajax" %}">#}
+{#                    <option value="score" selected>Score</option>#}
+{#                    <option value="posted-date">Posted Date</option>#}
+{#                </select>#}
+            </div>
+
 {#for passing the views.py lostpost_list that is using the models.py#}
     {% for story in stories %}
+{#    PROJECT5 count message if empty#}
+        {% if stories.count == 0%}
+            <p class="message"><strong>There are no posts right now!</strong></p>
+        {% else %}
 
         <div class="lostpost-story">
+
             <div class="lostpost-pts">
 
                 {% if request.session.username %}
@@ -46,53 +66,45 @@
 
                 {% if request.session.username %}
 
-                    <button class="downvote">Downvote</button>
+{#                    <button class="upvote" data-story-id="{{ story.id }}" data-ajax-url="{% url "dogs:story-upvote" %}">Upvote</button>#}
+                    <button class="downvote" data-story-id="{{ story.id }}" data-ajax-url="{% url "dogs:story-downvote" %}">Downvote</button>
 
                 {% elif request.session.username2 %}
 
-                    <button class="downvote">Downvote</button>
-
+{#                    <button class="downvote">Downvote</button>#}
+                    <button class="downvote" data-story-id="{{ story.id }}" data-ajax-url="{% url "dogs:story-downvote" %}">Downvote</button>
                 {% endif %}
 
             </div>
                 <h3 class="lostpost-title"><a href="{{ story.url }}"> {{ story.title }}</a></h3>
 
             {% if request.session.username %}
+
                 <p class="lostpost-byline2"><a href="{% url "dogs:story-edit" story.id %}">Edit Post</a></p>
-{#                <p class="lostpost-byline2">Update Post <a href="{% url "dogs:edit" story.id %}" class="edit post">Edit Post</a></p>#}
 
             {% elif request.session.username2 %}
+
                 <p class="lostpost-byline2"><a href="{% url "dogs:story-edit" story.id %}">Edit Post</a></p>
                 <p class="lostpost-byline2"><a href="{% url "dogs:story-delete" story.id %}">Delete Post</a></p>
 
             {% endif %}
+        {% endif %}
 
+{#        PROJCT 5 SORT BY date_posted, use the side tabs on the left!#}
+                <p class="date_posted" > {{ story.date_posted }}</p>
                 <p class="lostpost-description"> {{ story.description }}</p>
-                <p class="lostpost-contact"> <b> Contact info: {{ story.contact }} </b></p>
+
+{#        PROJECT5 USES AJAX TO GET THE CONTACT INFO! DETAIL VIEW FOR lostpost-contactinfo#}
+{#                <p class="lostpost-contact"> <b> Contact info: {{ story.contact }} </b></p>#}
+
         {#        update the comments url on the list.html so that it dynamically links to the story details page for the story#}
         {#        need to reference the app of dogs, used in the url.py#}
                 <p class="lostpost-byline">Submitted by <a href="#">{{ story.author }}</a> {{ story.date_posted|naturaltime }} - <a href="{% url "dogs:story-detail" story.id %}" class="comments">View comments and detail view</a> </p>
         </div>
+
+
     {% endfor %}
 
-
-{##}
-{#    <div class="lostpost-story">#}
-{#      <div class="lostpost-pts">#}
-{#          <BUTTON class="upvote">Upvote</BUTTON>#}
-{#          <div class="score">3</div>#}
-{#          <button class="downvote">Downvote</button>#}
-{#        </div>#}
-{##}
-{#        <h3 class="lostpost-title"><a href="https://www.awla.org/services/for-you/lost-found/found-animals/"> Lost Black Cat</a></h3>#}
-{#        <p class="lostpost-description"> My cat hasn't been home since last week on 09.02.21. Please look out for her! She was last seen in Falls Church plaza.</p>#}
-{#        <p class="lostpost-byline">Submitted by <a href="#">Bsmith</a> 45 hours ago - <a href="#" class="comments">View 6 comments</a> </p>#}
-{##}
-{#      <div class="lostpost-follow">#}
-{#          <button class="follow">Follow</button>#}
-{#          <p class="lostpost-trackstatus">Track the status of this post.</p>#}
-{#      </div>#}
-{#    </div>#}
 {% endblock %}
 
 {% block footer %}

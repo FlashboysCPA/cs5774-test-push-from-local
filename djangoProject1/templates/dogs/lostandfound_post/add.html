@@ -21,37 +21,25 @@
          <form id="lostpost-story" action="{% url "dogs:add" %}" method="post">
              <p>* = required.</p>
 
-             <label for="add-title">Title*: </label>
+{#             <label for="add-title">Title*: </label>#}
+             <p class="add-title">Title*: </p>
              <input id="post-title" name="post-title" type="text" required></input>
 
-             <label for="add-url">URL*: </label>
+{#             <label for="add-url">URL*: </label>#}
+             <p class="add-url">URL*: </p>
              <input id="post-url" name="post-url" type="text" required>
 
-             <label for="add-contact">Contact info: </label>
+{#             <label for="add-contact">Contact info: </label>#}
+             <p class="add-contact">Contact info: </p>
              <input id="post-contact" name="post-contact" type="text">
 
-             <label for="add-description">Description: </label>
+{#             <label for="add-description">Description: </label>#}
+             <p class="add-description">Description: </p>
              <input id="post-description" name="post-description" type="text">
 
              <input type="submit" name="submit" value="Submit Post">
              {% csrf_token %}
-{#             <input type="hidden" name="author" value="{{request.session.username   }}">#}
 
-{#             <p class="add-title">Title: </p>#}
-{#             <input type="text" name="post-title"></input>#}
-{##}
-{#             <p class="add-url">URL*:</p>#}
-{#             <input type="text" name="post-url" type="text" required>#}
-{##}
-{#             <p class="add-contact">Contact info:</p>#}
-{#             <input type="text" name="post-contact"></input>#}
-{##}
-{#             <p class="add-description">Description:</p>#}
-{#             <input type="text" name="post-description"></input>#}
-
-{#             <div class="post-button">#}
-{#                 <p class="lostpost-byline"><a href="#" class="postbutton-create">Submit Post</a> </p>#}
-{#             </div>#}
          </form>
     </div>
 {% endblock %}
